@@ -1,2 +1,2 @@
-# Collaz-Conjecture
-Collaz Conjecture
+# Collatz-Conjecture
+Collatz Conjecture
