@@ -29,7 +29,7 @@ def mode(tuple, level=-1):
             #print("*{}{}".format((A,B),(a,b)))
             node_tmp_cnt+=1
         else:
-            if(node_tmp<536870913): 
+            if(node_tmp<268435457):
                 nodeque.append((A*2,B))
                 nodeque.append((A*2,A+B))
             #print("{}{}".format((A,B),(a,b)))
@@ -44,6 +44,8 @@ while len(nodeque)>0:
         node_tmp=node[0]
         node_tmp_cnt=0
     mode(node)
+
+print("{}:{}".format(node_tmp,node_tmp_cnt))
 
     # if( node[0]==8192<<8):
     #     print("{}".format(node))
