@@ -1,3 +1,5 @@
+# 2025.02.26 timijk: changed >>1 to //2
+
 import collections
 
 A=0
@@ -17,15 +19,15 @@ def mode(tuple, level=-1):
 
     if(a%2==0):
         if(b%2==0):
-            return mode((a>>1,b>>1),level)
+            return mode((a//2,b//2),level)
         else:
-            return mode(((a>>1)*3,(b>>1)*3+2),level)
+            return mode(((a//2)*3,(b//2)*3+2),level)
     else:
         if(a<A):
             print("*{}{}".format((A,B),(a,b)))
         else:
-            nodeque.append((A<<1,B))
-            nodeque.append((A<<1,A+B))
+            nodeque.append((A*2,B))
+            nodeque.append((A*2,A+B))
             print("{}{}".format((A,B),(a,b)))
         return (a,b)
 
@@ -33,7 +35,7 @@ nodeque.append((4,3))
 
 while len(nodeque)>0:
     node= nodeque.popleft()
-    if( node[0]==8192<<3):
+    if( node[0]==8192<<8):
         print("{}".format(node))
     else: 
         mode(node)
