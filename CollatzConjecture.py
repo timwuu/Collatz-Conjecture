@@ -6,9 +6,11 @@ A=0
 B=0
 
 nodeque= collections.deque()
+node_tmp=0
+node_tmp_cnt=0
 
 def mode(tuple, level=-1):
-    global A,B
+    global A,B,node_tmp_cnt
     a=tuple[0]
     b=tuple[1]
 
@@ -24,21 +26,29 @@ def mode(tuple, level=-1):
             return mode(((a//2)*3,(b//2)*3+2),level)
     else:
         if(a<A):
-            print("*{}{}".format((A,B),(a,b)))
+            #print("*{}{}".format((A,B),(a,b)))
+            node_tmp_cnt+=1
         else:
-            nodeque.append((A*2,B))
-            nodeque.append((A*2,A+B))
-            print("{}{}".format((A,B),(a,b)))
+            if(node_tmp<536870913): 
+                nodeque.append((A*2,B))
+                nodeque.append((A*2,A+B))
+            #print("{}{}".format((A,B),(a,b)))
         return (a,b)
 
 nodeque.append((4,3))
 
 while len(nodeque)>0:
     node= nodeque.popleft()
-    if( node[0]==8192<<8):
-        print("{}".format(node))
-    else: 
-        mode(node)
+    if( node_tmp!=node[0]):
+        print("{}:{}".format(node_tmp,node_tmp_cnt))
+        node_tmp=node[0]
+        node_tmp_cnt=0
+    mode(node)
+
+    # if( node[0]==8192<<8):
+    #     print("{}".format(node))
+    # else: 
+    #     mode(node)
 
 # 4n+1 -> 3n+1
 # 4n+3 -> 6n+5 -> 9n+8
