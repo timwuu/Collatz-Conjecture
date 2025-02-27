@@ -8,6 +8,10 @@ n = 1<<N
 
 x0 = 3  #4m+3
 
+confirmed_ratio=0.0
+
+tmp_ratio = 4.0/n
+
 while x0 < n:
 
     steps=0
@@ -22,7 +26,13 @@ while x0 < n:
             x += (x+1)>>1
     
         steps += 1
-           
+
+    tmp = tmp_ratio*2.0**(N-steps) if steps>N else tmp_ratio
+
     print("{}, {}".format(steps,x0))
 
+    confirmed_ratio += tmp
+
     x0+=4
+
+print("confirmed_ratio: {}".format(confirmed_ratio))
