@@ -1,4 +1,4 @@
-# calculate the (2^m,X), where converge steps when X(n)<X
+# calculate the (2^m,X), the required steps from X=X(0) to X(n)<X(0)
 
 input_N = input("Enter a number:")
 
@@ -14,22 +14,15 @@ while x0 < n:
 
     x=x0
 
-    if x&1==0:  #if it's even
-        print(x,bin(x))
-        while x%2==0: x=x//2
-        steps += 1
-
-    while x!=1:
+    while x0<=x:   # stops while x<x0
         #print(x,bin(x))
-        x = x + (x+1)//2
+        if(x&1)==0:  # even
+            x=x>>1
+        else:
+            x += (x+1)>>1
+    
         steps += 1
-
-        if x<x0:
-            break
-
-        while x%2==0:
-            x=x//2
-
-    print("{}, {}".format((steps+1),x0))
+           
+    print("{}, {}".format(steps,x0))
 
     x0+=4

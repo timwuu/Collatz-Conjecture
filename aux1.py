@@ -1,3 +1,5 @@
+# converge patterns of 2^n-1 from odd to even
+
 n=20
 
 for n in range(2,30):
