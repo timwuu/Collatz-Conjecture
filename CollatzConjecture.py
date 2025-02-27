@@ -26,10 +26,10 @@ def mode(tuple, level=-1):
             return mode(((a//2)*3,(b//2)*3+2),level)
     else:
         if(a<A):
-            #print("*{}{}".format((A,B),(a,b)))
+            print("*{:15b},{}  {}".format((A+B),(A,B),(a,b)))
             node_tmp_cnt+=1
         else:
-            if(node_tmp<268435457):
+            if(node_tmp<4097): #<268435457):
                 nodeque.append((A*2,B))
                 nodeque.append((A*2,A+B))
             #print("{}{}".format((A,B),(a,b)))
@@ -40,7 +40,7 @@ nodeque.append((4,3))
 while len(nodeque)>0:
     node= nodeque.popleft()
     if( node_tmp!=node[0]):
-        print("{}:{}".format(node_tmp,node_tmp_cnt))
+        #print("{}:{}".format(node_tmp,node_tmp_cnt))
         node_tmp=node[0]
         node_tmp_cnt=0
     mode(node)
