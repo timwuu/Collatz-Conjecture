@@ -22,7 +22,7 @@ while x0<=x:   # stops while x<x0
 
     nodeque.append(x)
 
-    print("seq:{}, {}, {}".format(steps,x,bin(x)))
+    print("seq:{:3}, {:5}, {:12b}".format(steps,x,x))
     if(x&1)==0:  # even
         x=x>>1
     else:
