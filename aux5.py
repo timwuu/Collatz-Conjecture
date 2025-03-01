@@ -1,10 +1,13 @@
 # calculate the (2^m,X), the required steps from X=X(0) to X(n)<X(0)
 
-input_N = input("Enter a number:")
+def mod2n(x,n):  #return x%2^n
+    return x&((1<<n)-1)
 
-N= int(eval(input_N))
+input_m = input("Enter a number m for 2^m:")
 
-n = 1<<N
+m= int(eval(input_m))
+
+n = 1<<m
 
 x0 = 3  #4m+3
 
@@ -27,10 +30,12 @@ while x0 < n:
     
         steps += 1
 
-    tmp = tmp_ratio*2.0**(N-steps) if steps>N else tmp_ratio
+    tmp = tmp_ratio*2.0**(m-steps) if steps>m else tmp_ratio
 
-    print("{}, {}".format(steps,x0))
+    #print("{}, {}".format(steps,x0))
 
+    print("({:2}, {:5}) {:5}, {:12b}".format(steps,mod2n(x0,steps), x0, x0))
+ 
     confirmed_ratio += tmp
 
     x0+=4
