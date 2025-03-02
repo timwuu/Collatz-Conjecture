@@ -8,9 +8,13 @@ B=0
 nodeque= collections.deque()
 node_tmp=0
 node_tmp_cnt=0
+confirmed_ratio=0.0
+
+input_m = input("Enter a number m for 2^m:")
+N= 1<<int(eval(input_m))
 
 def mode(tuple, level=-1):
-    global A,B,node_tmp_cnt
+    global A,B,node_tmp_cnt,confirmed_ratio
     a=tuple[0]
     b=tuple[1]
 
@@ -27,9 +31,10 @@ def mode(tuple, level=-1):
     else:
         if(a<A):
             print("*{:15b},{}  {}".format((A+B),(A,B),(a,b)))
+            confirmed_ratio += 4.0/A
             node_tmp_cnt+=1
         else:
-            if(node_tmp<4097): #<268435457):
+            if(node_tmp<=N):
                 nodeque.append((A*2,B))
                 nodeque.append((A*2,A+B))
             #print("{}{}".format((A,B),(a,b)))
@@ -46,6 +51,8 @@ while len(nodeque)>0:
     mode(node)
 
 print("{}:{}".format(node_tmp,node_tmp_cnt))
+print("confirmed_ratio={}".format(confirmed_ratio))
+
 
     # if( node[0]==8192<<8):
     #     print("{}".format(node))
