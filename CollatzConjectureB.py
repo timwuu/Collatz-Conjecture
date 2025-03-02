@@ -10,12 +10,13 @@ nodeque= collections.deque()
 node_tmp=0
 node_tmp_cnt=0
 confirmed_ratio=0.0
+confirmed_ratio_est=0.0
 
 input_m = input("Enter a number m for 2^m:")
 N= 1<<int(eval(input_m))
 
 def mode(tuple, level=-1):
-    global A,B,node_tmp_cnt,confirmed_ratio
+    global A,B,node_tmp_cnt,confirmed_ratio,confirmed_ratio_est
     a=tuple[0]
     b=tuple[1]
 
@@ -38,9 +39,33 @@ def mode(tuple, level=-1):
             if(node_tmp<=N):
                 nodeque.append((A*2,A+B))
                 nodeque.append((A*2,B))  # small one popout first
-            #print("{}{}".format((A,B),(a,b)))
+            else:
+                #print("{},{}".format((A*2,B),(A*2,A+B)))
+                #print("{},{}".format(find_confirmed_ratio(B),find_confirmed_ratio(A+B)))
+                confirmed_ratio_est += find_confirmed_ratio(B)+find_confirmed_ratio(A+B)
+                
         return (a,b)
 
+# for used in the nodeque only
+def find_confirmed_ratio(x0):
+
+    #if(x0==1): return 0.5
+
+    steps=0
+
+    x=x0
+
+    while x0<=x:   # stops while x<x0
+        
+        if(x&1)==0:  # even
+            x=x>>1
+        else:
+            x += (x+1)>>1
+        steps += 1
+
+    return 4.0/2.0**steps
+
+#print("{}".format(find_confirmed_ratio(int(input_m))))
 
 nodeque.append((4,3))
 
@@ -61,6 +86,7 @@ while len(nodeque)>0:
 #print("{}:{}".format(node_tmp,node_tmp_cnt))
 print("max len: {}".format(max_len))
 print("confirmed_ratio={}".format(confirmed_ratio))
+print("confirmed_ratio_est={:8f}".format(confirmed_ratio_est))
 
     # if( node[0]==8192<<8):
     #     print("{}".format(node))
