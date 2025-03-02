@@ -3,7 +3,7 @@
 
 import collections
 
-def mod2n(x,n):  #return x%2^n
+def mod2n(x,n):  #return x%(2^n)
     return x&((1<<n)-1)
 
 nodeque= collections.deque()
@@ -39,7 +39,6 @@ for i in range(n):
     if( x%4==3):
         for j in range(i,n):
             if(nodeque[j]<x):
-                #print("({:2}, {:5}) {:5}, {:12b}".format(j-i,x&((1<<(j-i))-1), x, x))
                 print("({:2}, {:5}) {:5}, {:12b}".format(j-i,mod2n(x,j-i), x, x))
                 break
     #print(i)
