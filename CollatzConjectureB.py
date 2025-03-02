@@ -1,4 +1,5 @@
 # 2025.02.26 timijk: changed >>1 to //2
+# DFS version
 
 import collections
 
@@ -30,15 +31,15 @@ def mode(tuple, level=-1):
             node_tmp_cnt+=1
         else:
             if(node_tmp<4097): #<268435457):
-                nodeque.append((A*2,B))
                 nodeque.append((A*2,A+B))
+                nodeque.append((A*2,B))  # small one popout first
             #print("{}{}".format((A,B),(a,b)))
         return (a,b)
 
 nodeque.append((4,3))
 
 while len(nodeque)>0:
-    node= nodeque.popleft()
+    node= nodeque.pop()
     if( node_tmp!=node[0]):
         #print("{}:{}".format(node_tmp,node_tmp_cnt))
         node_tmp=node[0]
