@@ -16,7 +16,7 @@ input_m = input("Enter a number m for 2^m:")
 N= 1<<int(eval(input_m))
 
 def mode(tuple, level=-1):
-    global A,B,node_tmp_cnt,confirmed_ratio,confirmed_ratio_est
+    global A,B,node_tmp,node_tmp_cnt,confirmed_ratio,confirmed_ratio_est
     a=tuple[0]
     b=tuple[1]
 
