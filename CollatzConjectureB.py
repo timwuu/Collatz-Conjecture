@@ -12,8 +12,8 @@ node_tmp_cnt=0
 confirmed_ratio=0.0
 confirmed_ratio_est=0.0
 
-input_m = input("Enter a number m for 2^m:")
-N= 1<<int(eval(input_m))
+input_m = eval(input("Enter a number m for 2^m:"))
+N= 1<<int(input_m)
 
 def mode(tuple, level=-1):
     global A,B,node_tmp,node_tmp_cnt,confirmed_ratio,confirmed_ratio_est
@@ -25,14 +25,14 @@ def mode(tuple, level=-1):
         B=b
         level=0
 
-    if(a%2==0):
-        if(b%2==0):
+    if(a&1==0):
+        if(b&1==0):
             return mode((a//2,b//2),level)
         else:
             return mode(((a//2)*3,(b//2)*3+2),level)
     else:
         if(a<A):
-            #print("*{:15b},{}  {}".format((A+B),(A,B),(a,b)))
+            if(A<=1024): print("*{:15b},{}  {}".format((A+B),(A,B),(a,b)))
             confirmed_ratio += 4.0/A
             node_tmp_cnt+=1
         else:
@@ -85,7 +85,7 @@ while len(nodeque)>0:
 
 #print("{}:{}".format(node_tmp,node_tmp_cnt))
 print("max len: {}".format(max_len))
-print("confirmed_ratio={}".format(confirmed_ratio))
+print("confirmed_ratio={:8f}".format(confirmed_ratio))
 print("confirmed_ratio_est={:8f}".format(confirmed_ratio_est))
 
     # if( node[0]==8192<<8):
