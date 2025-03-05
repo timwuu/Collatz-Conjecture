@@ -27,6 +27,8 @@ aux2.py
 &nbsp;&nbsp;&nbsp; Compute the sequence and show odd numbers only.  
 aux4.py  
 &nbsp;&nbsp;&nbsp; Use form 3 to compute the sequence.  
+aux5.py  
+&nbsp;&nbsp;&nbsp; Calculate the required steps for all the x%4=3 cases < 2^m from n to n<sub>i</sub>, n<sub>i</sub><n.  
 aux7.py  
 &nbsp;&nbsp;&nbsp; Check the 3^n-1 binary form for 2^n-1.  
 
