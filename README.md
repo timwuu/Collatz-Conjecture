@@ -18,8 +18,11 @@ form 3
 
 CollatzConjecture.py  
 &nbsp;&nbsp;&nbsp; Calculate all the x%4=3 cases < 2^m using BFS.  
-CollatzConjecture.py  
+CollatzConjectureB.py  
 &nbsp;&nbsp;&nbsp; Calculate all the x%4=3 cases < 2^m using DFS.  
+CollatzConjectureC.py  
+&nbsp;&nbsp;&nbsp; Calculate all the x%4=3 cases < 2^m using DFS.  
+&nbsp;&nbsp;&nbsp; Print out the nested search result.  
 aux2.py  
 &nbsp;&nbsp;&nbsp; Compute the sequence and show odd numbers only.  
 aux4.py  
