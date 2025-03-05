@@ -32,7 +32,7 @@ def mode(tuple, A, B, level):
             return mode(((a//2)*3,(b//2)*3+2),A,B,level)
     else:
         if(a<A):
-            if(A<=1024): 
+            if(A<=2048): 
                 #print("{0:{width}}*{1:} {2:}".format(" ",(A,B),(a,b),width=tab_n))
                 print(" / {0:}".format((a,b)),end='')
             confirmed_ratio += 4.0/A
