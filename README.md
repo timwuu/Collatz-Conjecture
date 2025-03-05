@@ -29,3 +29,7 @@ aux4.py
 &nbsp;&nbsp;&nbsp; Use form 3 to compute the sequence.  
 aux7.py  
 &nbsp;&nbsp;&nbsp; Check the 3^n-1 binary form for 2^n-1.  
+
+## Comments:  
+If n can converge, it means we can find an integer m and 2^m+n can also converge, vice versa.
+It seems there are unlimited choices of m that can satisfy the convergence of 2^m+n, such that any n can converge to 1?
