@@ -1,6 +1,6 @@
 # 2025.02.26 timijk: changed >>1 to //2
 # DFS version
-# search for a particular number at a certain node such as 27 at (32,27)
+# Derive the bounded stop time of a certain number.
 
 import collections
 import math
@@ -23,7 +23,7 @@ def mode(tuple, A, B, level):
             return mode(((a//2)*3,(b//2)*3+2),A,B,level)
     else:
         if(a<A):
-            print("L:{} / {} / {}".format(level,A,tuple))
+            print("L:{} / {} / {}".format(level,(A,B),tuple))
         else:
             nodeque.append(((A*2,B),level+1))
         return (a,b)
