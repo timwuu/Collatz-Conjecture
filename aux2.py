@@ -12,7 +12,7 @@ if x&1==0:
     steps += 1
 
 while x!=1:
-    print("{0:5} {0:15b}".format(x))
+    print("{1:}:{0:5} {0:15b}".format(x,steps))
     x = x + (x+1)//2
     steps += 1
 
@@ -20,5 +20,4 @@ while x!=1:
         x=x//2
 
 
-print("{0:5} {0:15b}".format(x))
-print("- {} steps. -".format(steps))
+print("{1:}:{0:5} {0:15b}".format(x,steps))
